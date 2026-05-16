@@ -2,7 +2,6 @@
 title: Doubly Linked List
 ---
 
-
 ```python
 class Node:
     def __init__(self, key: int = None, value: int = None):
@@ -10,7 +9,7 @@ class Node:
         self.value = value
         self.next = None
         self.prev = None
-        
+
 class DLL:
     def __init__(self):
         self.head = Node()
@@ -24,7 +23,7 @@ class DLL:
         node.next = nxt
         pre.next = node
         nxt.prev = node
-    
+
     def remove(self, node: Node) -> int:
         pre, nxt = node.prev, node.next
         pre.next = nxt

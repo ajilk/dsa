@@ -14,7 +14,8 @@ class Solution:
                 yield from inorder(node.right)
 
         return all(a < b for a, b in pairwise(inorder(root)))
-```
+
+````
 </Tab>
 <Tab value="Recursive">
 ```python
@@ -31,7 +32,8 @@ class Solution:
         return self.isValidBST(node.left, low, node.val) and self.isValidBST(
             node.right, node.val, high
         )
-```
+````
+
 </Tab>
 <Tab value="Iterative">
 ```python
@@ -52,6 +54,8 @@ class Solution:
             node = node.right
 
         return True
+
 ```
 </Tab>
 </Tabs>
+```

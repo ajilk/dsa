@@ -7,7 +7,8 @@ title: Bellman-Ford Algorithm
 Bellman-Ford Algorithm finds the shortest path from a source vertex to all other vertices in a weighted graph, including graphs with negative edge weights.
 
 <Callout title="Core Insight" type="idea">
-The shortest path between any two vertices has at most V-1 edges. By relaxing all edges V-1 times, we guarantee finding the shortest paths.
+  The shortest path between any two vertices has at most V-1 edges. By relaxing all edges V-1 times,
+  we guarantee finding the shortest paths.
 </Callout>
 
 ## Algorithm Steps
@@ -20,10 +21,10 @@ The shortest path between any two vertices has at most V-1 edges. By relaxing al
 
 ## Complexity
 
-| Metric           | Complexity  | Reason                              |
-| ---------------- | ----------- | ----------------------------------- |
-| Time Complexity  | $O(V × E)$  | V-1 iterations, each relaxing E edges |
-| Space Complexity | $O(V)$      | Distance array                      |
+| Metric           | Complexity | Reason                                |
+| ---------------- | ---------- | ------------------------------------- |
+| Time Complexity  | $O(V × E)$ | V-1 iterations, each relaxing E edges |
+| Space Complexity | $O(V)$     | Distance array                        |
 
 Where V = vertices, E = edges
 
@@ -52,6 +53,7 @@ def bellman_ford(edges: list[tuple[int, int, int]], n: int, source: int) -> list
     C -->|2| D((3))
 
     style A fill:#555,stroke:none,color:#fff`} />
+
 </div>
 
 **Finding shortest paths from vertex 0:**

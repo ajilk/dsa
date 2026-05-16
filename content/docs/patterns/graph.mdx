@@ -12,16 +12,19 @@ for a, b in edges:
     G[b].append(a)
 
 # directed graph
+
 G = defaultdict(list)
 for a, b in edges:
-    G[a].append(b)
+G[a].append(b)
 
 # weighted graph
+
 G = defaultdict(dict)
 for a, b, weight in edges:
-    G[a][b] = weight
-    G[b][a] = weight
-```
+G[a][b] = weight
+G[b][a] = weight
+
+````
 </Tab>
 <Tab value="DFS">
 ```python
@@ -49,7 +52,8 @@ while stack:
 
     for nei in G[node]:
         stack.append(nei)
-```
+````
+
 </Tab>
 <Tab value="BFS">
 ```python
@@ -57,13 +61,15 @@ q = deque([start])
 visited = set([start])
 
 while q:
-    node = q.popleft()
+node = q.popleft()
 
     for nei in G[node]:
         if nei not in visited:
             visited.add(nei)
             q.append(nei)
+
 ```
 </Tab>
 </Tabs>
 
+```

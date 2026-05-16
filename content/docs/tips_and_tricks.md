@@ -2,9 +2,10 @@
 title: Tips & Tricks
 ---
 
-
 ### `isslice(iterator, start, end)`
+
 to slice iterators
+
 ```python
 def values(n: int) -> Iterator[int]:
     for i in range(n):
@@ -14,6 +15,7 @@ islice(values(100), 20, 31) # -> [20, 21, 22, ..., 30]
 ```
 
 ### Negative Indexing
+
 `A[-k:] == A[n - k:]` where `n = len(A)`
 
 ```python

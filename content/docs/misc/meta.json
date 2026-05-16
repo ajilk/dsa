@@ -1,10 +1,4 @@
 {
   "title": "Miscellaneous",
-  "pages": [
-    "complexity",
-    "gauss",
-    "binet",
-    "sieve",
-    "inverse-ackermann"
-  ]
+  "pages": ["complexity", "gauss", "binet", "sieve", "inverse-ackermann"]
 }

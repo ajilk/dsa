@@ -33,10 +33,12 @@ Since $|\psi| < 1$, the $\psi^n$ term vanishes for large $n$:
 $$\Large a_n \approx \frac{\varphi^n}{\sqrt{5}}$$
 
 **Derivation**: For recurrence $a_n = a_{n-1} + a_{n-2}$:
+
 - Characteristic equation: $x^2 - x - 1 = 0$
 - Roots: $\varphi$ and $\psi$
 - General solution: $a_n = A\varphi^n + B\psi^n$
 - Constants $A, B$ determined by initial conditions
 
 #### Related Problems
+
 - [509. Fibonacci Number](../leetcode/math/509.mdx)

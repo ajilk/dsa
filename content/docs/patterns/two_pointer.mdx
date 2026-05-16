@@ -8,14 +8,14 @@ title: Two-Pointer
 # converging from both ends
 left, right = 0, n - 1
 
-while left < right:
-    # process A[left] and A[right]
+while left < right: # process A[left] and A[right]
 
     if condition:
         left += 1
     else:
         right -= 1
-```
+
+````
 </Tab>
 <Tab value="Slow-Fast">
 ```python
@@ -35,15 +35,15 @@ slow = start
 while slow != fast:
     slow = slow.next
     fast = fast.next
-```
+````
+
 </Tab>
 <Tab value="Sliding Window">
 ```python
 # variable window
 left = 0
 
-for right in range(n):
-    # expand window: add A[right]
+for right in range(n): # expand window: add A[right]
 
     while condition:
         # shrink window: remove A[left]
@@ -52,12 +52,14 @@ for right in range(n):
     # update result
 
 # or fixed window
+
 for right in range(n):
-    if right >= k:
-        # remove A[right - k]
+if right >= k: # remove A[right - k]
 
     # add A[right]
     # update result
+
 ```
 </Tab>
 </Tabs>
+```

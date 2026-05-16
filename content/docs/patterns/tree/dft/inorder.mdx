@@ -22,7 +22,8 @@ def inorder(node: Optional[TreeNode]) -> List[TreeNode]:
     right = inorder(node.right)
 
     return left + [node] + right
-```
+
+````
 </Tab>
 <Tab value="Iterative">
 ```python
@@ -39,6 +40,7 @@ def inorder(node: Optional[TreeNode]) -> List[TreeNode]:
         node = node.right
 
     return result
-```
+````
+
 </Tab>
 </Tabs>

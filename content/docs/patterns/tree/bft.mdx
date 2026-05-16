@@ -2,7 +2,6 @@
 title: Breadth First Traversal
 ---
 
-
 ```python
 def bft(root: TreeNode) -> List[int]:
     q = deque([root])

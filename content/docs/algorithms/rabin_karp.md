@@ -21,7 +21,9 @@ Use a rolling hash to efficiently compute hash values of consecutive substrings 
    - Use rolling hash to update window hash in O(1)
 
 ### Rolling Hash Formula
+
 Using polynomial rolling hash with base `d` and modulus `q`:
+
 - Initial: `hash = (c[0]*d^(m-1) + c[1]*d^(m-2) + ... + c[m-1]) % q`
 - Roll: `new_hash = ((old_hash - c[old]*d^(m-1)) * d + c[new]) % q`
 
@@ -75,6 +77,7 @@ result = rabin_karp(text, pattern)
 ```
 
 With d=256, q=101, m=4:
+
 - Pattern hash: computed once
 - Window slides: hash updated in O(1) using rolling formula
 - Hash match at i=0: verify "ABAB" == "ABAB" ✓

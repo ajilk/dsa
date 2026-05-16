@@ -41,6 +41,7 @@ Solutions live in `content/docs/leetcode/<category>/<number>.md`. Each category 
 ## Naming Conventions for Solutions
 
 When writing LeetCode solutions, follow `content/docs/naming.md`:
+
 - `A` for arrays, `M` for matrices, `G` for graphs
 - `i`, `j` for indices; `y`, `x` for matrix coordinates
 - `left`, `right` for two pointers; `slow`, `fast` for fast/slow pointers

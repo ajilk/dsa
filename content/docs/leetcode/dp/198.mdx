@@ -14,7 +14,8 @@ class Solution:
             pre, cur = cur, max(pre + A[i], cur)
 
         return cur
-```
+
+````
 </Tab>
 <Tab value="DP Array">
 ```python
@@ -33,6 +34,7 @@ class Solution:
             dp[i] = max(A[i] + dp[i-2], dp[i-1])
 
         return dp[n-1]
-```
+````
+
 </Tab>
 </Tabs>

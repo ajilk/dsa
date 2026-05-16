@@ -7,6 +7,7 @@ title: Floyd's Cycle Detection Algorithm
 Floyd's Cycle Detection Algorithm (also called the "Tortoise and Hare" algorithm) detects cycles in sequences using two pointers moving at different speeds. When a cycle exists, the fast pointer will eventually catch up to the slow pointer.
 
 **Applications:**
+
 - Detecting cycles in linked lists
 - Finding duplicate numbers in arrays (treat as implicit linked list)
 - Detecting cycles in functional graphs
@@ -27,10 +28,10 @@ Floyd's Cycle Detection Algorithm (also called the "Tortoise and Hare" algorithm
 
 ## Complexity
 
-| Metric           | Complexity | Reason                                 |
-| ---------------- | ---------- | -------------------------------------- |
+| Metric           | Complexity | Reason                                     |
+| ---------------- | ---------- | ------------------------------------------ |
 | Time Complexity  | $O(n)$     | Each pointer visits each node at most once |
-| Space Complexity | $O(1)$     | Only two pointers needed               |
+| Space Complexity | $O(1)$     | Only two pointers needed                   |
 
 Where n = number of nodes
 
@@ -125,6 +126,7 @@ def find_duplicate(A: list[int]) -> int:
 
     style C fill:#555,stroke:none,color:#fff
     style E fill:#555,stroke:none,color:#fff`} />
+
 </div>
 
 **Linked list with cycle**: Nodes 1→2→3→4→5, where node 5 points back to node 3 (creating a cycle).
@@ -154,10 +156,12 @@ find_duplicate([1, 3, 4, 2, 2])  # Returns 2
 ## Why It Works
 
 **Phase 1 (Detection):**
+
 - In a cycle of length $c$, fast pointer gains 1 position per iteration
 - They will meet within $c$ iterations after both enter the cycle
 
 **Phase 2 (Find Start):**
+
 - Distance from start to cycle entrance = distance from meeting point to cycle entrance
 - Mathematical proof uses modular arithmetic on cycle length
 
@@ -168,9 +172,10 @@ find_duplicate([1, 3, 4, 2, 2])  # Returns 2
 - Guaranteed to detect cycle if one exists
 - Can find cycle start with second phase
 - Works on any functional graph (implicit or explicit linked structure)
-<Callout title="Null Pointer Check" type="warn">
-Always check both `fast` and `fast.next` before moving the fast pointer to avoid null pointer errors.
-</Callout>
+  <Callout title="Null Pointer Check" type="warn">
+    Always check both `fast` and `fast.next` before moving the fast pointer to avoid null pointer
+    errors.
+  </Callout>
 - For arrays, interpret indices as implicit linked list
 
 ## Related Problems

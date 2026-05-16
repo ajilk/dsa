@@ -2,7 +2,6 @@
 title: Segment Trees
 ---
 
-
 ```python
 class TreeNode:
     def __init__(self, value: int, start: int, end: int, left: Optional['TreeNode'] = None, right: Optional['TreeNode'] = None):
@@ -16,14 +15,14 @@ class SegmentTree:
     def __init__(self, values: List[int]):
         self.values = values
         self.root = self.build(0, len(values) - 1)
-    
+
     def build(self, start: int, end: int) -> TreeNode:
         if start == end:
             return TreeNode(self.values[start], start, end)
         left = self.build(start, (start + end) // 2)
         right = self.build((start + end) // 2 + 1, end)
         return TreeNode(left.value + right.value, start, end, left, right)
-    
+
     def update(self, root: TreeNode, idx: int, value: int) -> int:
         if root.start == root.end and idx == root.start:
             root.value = value
@@ -39,7 +38,7 @@ class SegmentTree:
 
         root.value = root.left.value + root.right.value
         return root.value
-    
+
     def query(self, root: TreeNode, left: int, right: int) -> int:
         if root.start > right or root.end < left:
             return 0

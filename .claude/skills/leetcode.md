@@ -38,8 +38,8 @@ The script outputs JSON to stdout with the following structure:
   "content": "<p>Given an array of integers...</p>",
   "difficulty": "Easy",
   "topicTags": [
-    {"name": "Array", "slug": "array"},
-    {"name": "Hash Table", "slug": "hash-table"}
+    { "name": "Array", "slug": "array" },
+    { "name": "Hash Table", "slug": "hash-table" }
   ],
   "codeSnippets": [
     {
@@ -57,6 +57,7 @@ The script outputs JSON to stdout with the following structure:
 ### Usage in Workflows
 
 When fetching a LeetCode question:
+
 1. Call the script via Bash tool
 2. Parse the JSON output
 3. Extract relevant fields (title, content, code snippets)
@@ -75,14 +76,17 @@ When fetching a LeetCode question:
 This section provides detailed information about the LeetCode GraphQL API for advanced users who want to implement custom fetching logic.
 
 ### Overview
+
 LeetCode uses question title slugs (URL-friendly names) rather than question numbers directly in their API.
 
 ## API Endpoint
+
 ```
 POST https://leetcode.com/graphql
 ```
 
 ## Required Headers
+
 ```
 Content-Type: application/json
 User-Agent: Mozilla/5.0
@@ -93,6 +97,7 @@ User-Agent: Mozilla/5.0
 If you know the title slug (e.g., "two-sum", "add-two-numbers"):
 
 ### GraphQL Query
+
 ```graphql
 query questionData($titleSlug: String!) {
   question(titleSlug: $titleSlug) {
@@ -136,13 +141,14 @@ query questionData($titleSlug: String!) {
 ```
 
 ### Request Body (Python Example)
+
 ```python
 import requests
 import json
 
 def fetch_leetcode_question(title_slug):
     url = "https://leetcode.com/graphql"
-    
+
     query = """
     query questionData($titleSlug: String!) {
       question(titleSlug: $titleSlug) {
@@ -166,17 +172,17 @@ def fetch_leetcode_question(title_slug):
       }
     }
     """
-    
+
     payload = {
         "query": query,
         "variables": {"titleSlug": title_slug}
     }
-    
+
     headers = {
         "Content-Type": "application/json",
         "User-Agent": "Mozilla/5.0"
     }
-    
+
     response = requests.post(url, json=payload, headers=headers)
     return response.json()
 
@@ -190,8 +196,14 @@ print(json.dumps(result, indent=2))
 If you only have the question number (e.g., 1, 2, 3):
 
 ### Step 1: Get All Questions List
+
 ```graphql
-query problemsetQuestionList($categorySlug: String, $limit: Int, $skip: Int, $filters: QuestionListFilterInput) {
+query problemsetQuestionList(
+  $categorySlug: String
+  $limit: Int
+  $skip: Int
+  $filters: QuestionListFilterInput
+) {
   problemsetQuestionList: questionList(
     categorySlug: $categorySlug
     limit: $limit
@@ -222,10 +234,11 @@ query problemsetQuestionList($categorySlug: String, $limit: Int, $skip: Int, $fi
 ```
 
 ### Step 2: Filter by Question Number
+
 ```python
 def get_question_by_number(question_number):
     url = "https://leetcode.com/graphql"
-    
+
     query = """
     query problemsetQuestionList($categorySlug: String, $limit: Int, $skip: Int, $filters: QuestionListFilterInput) {
       problemsetQuestionList: questionList(
@@ -243,7 +256,7 @@ def get_question_by_number(question_number):
       }
     }
     """
-    
+
     # Fetch questions in batches
     payload = {
         "query": query,
@@ -254,21 +267,21 @@ def get_question_by_number(question_number):
             "filters": {}
         }
     }
-    
+
     headers = {
         "Content-Type": "application/json",
         "User-Agent": "Mozilla/5.0"
     }
-    
+
     # You may need to paginate through results
     response = requests.post(url, json=payload, headers=headers)
     data = response.json()
-    
+
     # Find the question with matching number
     for q in data['data']['problemsetQuestionList']['questions']:
         if q['frontendQuestionId'] == str(question_number):
             return q['titleSlug']
-    
+
     return None
 
 # Get title slug, then fetch full question
@@ -280,6 +293,7 @@ if title_slug:
 ## Method 3: Direct URL Pattern (Alternative)
 
 LeetCode questions follow a URL pattern. You can sometimes construct the title slug from common patterns:
+
 - Question 1: "two-sum"
 - Question 2: "add-two-numbers"
 - Pattern: lowercase, words separated by hyphens
@@ -294,13 +308,13 @@ import json
 
 class LeetCodeAPI:
     BASE_URL = "https://leetcode.com/graphql"
-    
+
     def __init__(self):
         self.headers = {
             "Content-Type": "application/json",
             "User-Agent": "Mozilla/5.0"
         }
-    
+
     def fetch_question_by_slug(self, title_slug):
         """Fetch question details by title slug"""
         query = """
@@ -330,15 +344,15 @@ class LeetCodeAPI:
           }
         }
         """
-        
+
         payload = {
             "query": query,
             "variables": {"titleSlug": title_slug}
         }
-        
+
         response = requests.post(self.BASE_URL, json=payload, headers=self.headers)
         return response.json()
-    
+
     def find_title_slug_by_number(self, question_number):
         """Find title slug by question number"""
         query = """
@@ -355,10 +369,10 @@ class LeetCodeAPI:
           }
         }
         """
-        
+
         skip = 0
         limit = 100
-        
+
         while True:
             payload = {
                 "query": query,
@@ -368,30 +382,30 @@ class LeetCodeAPI:
                     "skip": skip
                 }
             }
-            
+
             response = requests.post(self.BASE_URL, json=payload, headers=self.headers)
             data = response.json()
-            
+
             questions = data.get('data', {}).get('problemsetQuestionList', {}).get('questions', [])
-            
+
             if not questions:
                 break
-            
+
             for q in questions:
                 if q['frontendQuestionId'] == str(question_number):
                     return q['titleSlug']
-            
+
             skip += limit
-        
+
         return None
-    
+
     def fetch_question_by_number(self, question_number):
         """Fetch question details by question number"""
         title_slug = self.find_title_slug_by_number(question_number)
-        
+
         if not title_slug:
             return {"error": f"Question {question_number} not found"}
-        
+
         return self.fetch_question_by_slug(title_slug)
 
 # Usage
@@ -424,8 +438,8 @@ The API returns a JSON object with this structure:
       "dislikes": 1500,
       "exampleTestcases": "[2,7,11,15]\n9\n[3,2,4]\n6",
       "topicTags": [
-        {"name": "Array", "slug": "array"},
-        {"name": "Hash Table", "slug": "hash-table"}
+        { "name": "Array", "slug": "array" },
+        { "name": "Hash Table", "slug": "hash-table" }
       ],
       "codeSnippets": [
         {
@@ -463,15 +477,19 @@ The API returns a JSON object with this structure:
 ## Common Issues & Solutions
 
 ### Issue 1: Rate Limiting
+
 **Solution**: Add delays between requests (1-2 seconds), use exponential backoff
 
 ### Issue 2: Question Not Found
+
 **Solution**: Verify the question number/slug exists, check for typos
 
 ### Issue 3: HTML Content
+
 **Solution**: Use libraries like BeautifulSoup to parse HTML from the `content` field
 
 ### Issue 4: Code Snippets Format
+
 **Solution**: The `code` field in `codeSnippets` is a string; extract for specific language
 
 ## Additional Notes

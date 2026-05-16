@@ -1,7 +1,7 @@
 #!/usr/bin/env bun
 
-import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'fs';
-import { join, dirname, basename, extname } from 'path';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
+import { basename, dirname, extname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -65,7 +65,7 @@ if (existsSync(metaPath)) {
 } else {
   meta = {
     title: category.charAt(0).toUpperCase() + category.slice(1).replace('_', ' '),
-    pages: []
+    pages: [],
   };
 }
 

@@ -1,14 +1,5 @@
 {
   "title": "Data Structures",
   "icon": "Database",
-  "pages": [
-    "sll",
-    "dll",
-    "graph",
-    "heap",
-    "uf",
-    "fenwick_tree",
-    "segement_tree",
-    "trie"
-  ]
+  "pages": ["sll", "dll", "graph", "heap", "uf", "fenwick_tree", "segement_tree", "trie"]
 }

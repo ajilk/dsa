@@ -18,10 +18,10 @@ Where $A(k, k)$ is the Ackermann function, which grows extraordinarily fast.
 
 The inverse Ackermann function grows so slowly that for all practical values of $n$:
 
-| $n$ | $\alpha(n)$ |
-|-----|-------------|
-| $10^{80}$ (atoms in universe) | $\leq 4$ |
-| $2^{65536}$ | $5$ |
+| $n$                           | $\alpha(n)$ |
+| ----------------------------- | ----------- |
+| $10^{80}$ (atoms in universe) | $\leq 4$    |
+| $2^{65536}$                   | $5$         |
 
 For any input size encountered in practice, $\alpha(n) \leq 4$, making it effectively constant.
 

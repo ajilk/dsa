@@ -5,6 +5,7 @@ title: Union Find
 ## Overview
 
 Union Find (also called Disjoint Set Union or DSU) is a data structure that tracks elements partitioned into disjoint sets. It efficiently supports two operations:
+
 - **Find**: Determine which set an element belongs to
 - **Union**: Merge two sets into one
 
@@ -13,9 +14,9 @@ Union Find (also called Disjoint Set Union or DSU) is a data structure that trac
 ## Complexity
 
 | Operation | Without Rank | With Rank + Path Compression |
-|-----------|--------------|------------------------------|
-| Find      | $O(n)$ worst | $O(\alpha(n))$ amortized    |
-| Union     | $O(n)$ worst | $O(\alpha(n))$ amortized    |
+| --------- | ------------ | ---------------------------- |
+| Find      | $O(n)$ worst | $O(\alpha(n))$ amortized     |
+| Union     | $O(n)$ worst | $O(\alpha(n))$ amortized     |
 
 Where $\alpha(n)$ is the inverse Ackermann function (effectively constant, $\leq 4$ for practical values).
 
@@ -47,7 +48,8 @@ class UnionFind:
             self.root[rx] = ry
             return True
         return False
-```
+
+````
 </Tab>
 <Tab value="With Rank">
 ```python
@@ -76,7 +78,8 @@ class UnionFind:
                 self.rank[rx] += 1
             return True
         return False
-```
+````
+
 </Tab>
 </Tabs>
 
@@ -104,6 +107,7 @@ uf.find(0) == uf.find(3)  # False (different sets)
 ## Common Patterns
 
 ### Cycle Detection
+
 ```python
 def has_cycle(n: int, edges: list[list[int]]) -> bool:
     uf = UnionFind(n)
@@ -114,6 +118,7 @@ def has_cycle(n: int, edges: list[list[int]]) -> bool:
 ```
 
 ### Count Components
+
 ```python
 def count_components(n: int, edges: list[list[int]]) -> int:
     uf = UnionFind(n)
@@ -128,6 +133,7 @@ def count_components(n: int, edges: list[list[int]]) -> int:
 - Nearly constant time operations with both optimizations
 - `union()` returns `False` if elements already connected (useful for cycle detection)
 - Path compression happens during `find()`, not `union()`
-<Callout title="Best Practice" type="success">
-Always use Union Find with rank and path compression in competitive programming for optimal $O(\alpha(n))$ amortized complexity.
-</Callout>
+  <Callout title="Best Practice" type="success">
+    Always use Union Find with rank and path compression in competitive programming for optimal
+    $O(\alpha(n))$ amortized complexity.
+  </Callout>

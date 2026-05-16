@@ -1,8 +1,4 @@
 {
   "title": "Depth First Traversal",
-  "pages": [
-    "preorder",
-    "inorder",
-    "postorder"
-  ]
+  "pages": ["preorder", "inorder", "postorder"]
 }

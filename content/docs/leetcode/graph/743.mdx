@@ -5,10 +5,10 @@ title: 743. Network Delay Time
 <Tabs items={['Dijkstra', 'Bellman-Ford']}>
 <Tab value="Dijkstra">
 
-| Metric | Complexity | Explanation |
-|--------|------------|-------------|
+| Metric | Complexity          | Explanation                                                     |
+| ------ | ------------------- | --------------------------------------------------------------- |
 | Time   | $O((V + E) \log V)$ | Each edge relaxation may push to heap; heap ops are $O(\log V)$ |
-| Space  | $O(V + E)$ | Adjacency list $O(E)$, distance array $O(V)$, heap up to $O(E)$ |
+| Space  | $O(V + E)$          | Adjacency list $O(E)$, distance array $O(V)$, heap up to $O(E)$ |
 
 ```python
 class Solution:
@@ -16,7 +16,7 @@ class Solution:
         G = defaultdict(list)
         for u, v, w in times:
             G[u].append([v, w])
-        
+
         W = [inf] * (n + 1)
         W[k] = 0
         heap = [(0, k)]
@@ -33,13 +33,14 @@ class Solution:
         result = max(W[1:])
         return -1 if result == inf else result
 ```
+
 </Tab>
 <Tab value="Bellman-Ford">
 
-| Metric | Complexity | Explanation |
-|--------|------------|-------------|
+| Metric | Complexity     | Explanation                                   |
+| ------ | -------------- | --------------------------------------------- |
 | Time   | $O(V \cdot E)$ | $n-1$ iterations, each relaxing all $E$ edges |
-| Space  | $O(V)$ | Distance array only |
+| Space  | $O(V)$         | Distance array only                           |
 
 ```python
 class Solution:
@@ -55,5 +56,6 @@ class Solution:
         result = max(W[1:])
         return result if result != inf else -1
 ```
+
 </Tab>
 </Tabs>

@@ -7,6 +7,7 @@ title: Floyd-Warshall Algorithm
 Floyd-Warshall Algorithm finds the shortest path distances between all pairs of vertices in a weighted graph. It uses dynamic programming to consider all possible intermediate vertices, building up the solution incrementally.
 
 Works with:
+
 - Positive and negative edge weights
 - Directed and undirected graphs
 - Can detect negative cycles
@@ -21,10 +22,10 @@ Works with:
 
 ## Complexity
 
-| Metric           | Complexity | Reason                              |
-| ---------------- | ---------- | ----------------------------------- |
+| Metric           | Complexity | Reason                               |
+| ---------------- | ---------- | ------------------------------------ |
 | Time Complexity  | $O(V^3)$   | Three nested loops over all vertices |
-| Space Complexity | $O(V^2)$   | Distance matrix storage             |
+| Space Complexity | $O(V^2)$   | Distance matrix storage              |
 
 Where V = number of vertices
 
@@ -121,9 +122,9 @@ def has_negative_cycle(M: list[list[float]]) -> bool:
 
 - Solves all-pairs shortest path in $O(V^3)$ time
 - Works with negative weights (unlike Dijkstra)
-<Callout title="Loop Order" type="warn">
-The $k$ loop MUST be outermost. Incorrect ordering breaks the algorithm.
-</Callout>
+  <Callout title="Loop Order" type="warn">
+    The $k$ loop MUST be outermost. Incorrect ordering breaks the algorithm.
+  </Callout>
 - Use for dense graphs or small $V$ (≤400 vertices)
 - For sparse graphs, run Dijkstra $V$ times instead
 - Detects negative cycles: check if $M[i][i] < 0$

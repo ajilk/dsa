@@ -7,6 +7,7 @@ title: Heap
 A heap is a complete binary tree that satisfies the **heap invariant**. It efficiently supports priority queue operations.
 
 **Heap Invariant**: A structural property that must hold for every node in the tree:
+
 - **Min Heap**: Every parent is ≤ both children (root is minimum)
 - **Max Heap**: Every parent is ≥ both children (root is maximum)
 
@@ -36,11 +37,13 @@ This invariant is maintained after every operation (insert, extract) through hea
     style A fill:#e1f5ff
     style B fill:#e1f5ff
     style C fill:#e1f5ff`} />
+
 </div>
 
 Array representation: `[1, 3, 2, 7, 8, 4, 5]`
 
 For element at index `i`:
+
 - Parent: `(i - 1) // 2`
 - Left child: `2 * i + 1`
 - Right child: `2 * i + 2`
@@ -48,11 +51,11 @@ For element at index `i`:
 ## Complexity
 
 | Operation | Time Complexity | Space Complexity |
-|-----------|----------------|------------------|
-| insert    | $O(\log n)$    | $O(1)$          |
-| extract   | $O(\log n)$    | $O(1)$          |
-| peek      | $O(1)$         | $O(1)$          |
-| heapify   | $O(n)$         | $O(1)$          |
+| --------- | --------------- | ---------------- |
+| insert    | $O(\log n)$     | $O(1)$           |
+| extract   | $O(\log n)$     | $O(1)$           |
+| peek      | $O(1)$          | $O(1)$           |
+| heapify   | $O(n)$          | $O(1)$           |
 
 ## Implementation
 
@@ -120,7 +123,8 @@ class MinHeap:
 
     def size(self) -> int:
         return len(self.heap)
-```
+
+````
 </Tab>
 <Tab value="Max Heap">
 ```python
@@ -185,7 +189,8 @@ class MaxHeap:
 
     def size(self) -> int:
         return len(self.heap)
-```
+````
+
 </Tab>
 </Tabs>
 
@@ -235,8 +240,8 @@ def find_kth_smallest(A: list[int], k: int) -> int | None:
 import heapq
 
 def merge_k_sorted(arrays: list[list[int]]) -> list[int]:
-    h = []
-    result = []
+h = []
+result = []
 
     for i, A in enumerate(arrays):
         if A:
@@ -251,7 +256,8 @@ def merge_k_sorted(arrays: list[list[int]]) -> list[int]:
             heapq.heappush(h, (next_v, array_idx, elem_idx + 1))
 
     return result
-```
+
+````
 </Tab>
 <Tab value="Heap Sort">
 ```python
@@ -260,19 +266,19 @@ def heap_sort(A: list[int]) -> list[int]:
     for v in A:
         h.insert(v)
     return [h.extract() for _ in range(h.size())]
-```
+````
+
 </Tab>
 </Tabs>
 
 ## Key Points
 
 <Callout title="Core Invariant" type="idea">
-The heap invariant must be restored after every insertion or extraction through heapify operations.
+  The heap invariant must be restored after every insertion or extraction through heapify
+  operations.
 </Callout>
-- `_heapify_up()` restores invariant after insertion (bubbles up)
-- `_heapify_down()` restores invariant after extraction (bubbles down)
-- Python's `heapq` module implements min heap by default
-- For max heap in Python: negate values or use `(-v, v)` tuples
-- Building a heap from array: use heapify for $O(n)$ instead of $O(n \log n)$ insertions
-- Complete binary tree property ensures $O(\log n)$ height
-- Use heap for top-k problems with space constraint $O(k)$
+- `_heapify_up()` restores invariant after insertion (bubbles up) - `_heapify_down()` restores
+invariant after extraction (bubbles down) - Python's `heapq` module implements min heap by default -
+For max heap in Python: negate values or use `(-v, v)` tuples - Building a heap from array: use
+heapify for $O(n)$ instead of $O(n \log n)$ insertions - Complete binary tree property ensures
+$O(\log n)$ height - Use heap for top-k problems with space constraint $O(k)$

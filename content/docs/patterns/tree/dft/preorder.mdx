@@ -22,7 +22,8 @@ def preorder(node: Optional[TreeNode]) -> List[TreeNode]:
     right = preorder(node.right)
 
     return [node.val] + left + right
-```
+
+````
 </Tab>
 <Tab value="Iterative">
 ```python
@@ -39,6 +40,7 @@ def preorder(node: Optional[TreeNode]) -> List[TreeNode]:
         node = node.right
 
     return result
-```
+````
+
 </Tab>
 </Tabs>

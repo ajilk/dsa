@@ -110,4 +110,3 @@ def has_cycle(n: int, edges: list[list[int]]) -> bool:
 ## Related Problems
 
 - [269. Alien Dictionary](../leetcode/graph/269.mdx)
-

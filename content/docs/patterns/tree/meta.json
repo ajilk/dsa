@@ -1,7 +1,4 @@
 {
   "title": "Tree Traversal",
-  "pages": [
-    "dft",
-    "bft"
-  ]
+  "pages": ["dft", "bft"]
 }

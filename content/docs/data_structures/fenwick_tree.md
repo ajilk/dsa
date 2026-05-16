@@ -2,7 +2,6 @@
 title: Fenwick Trees
 ---
 
-
 ```python
 class FenwickTree:
     def __init__(self, size: int):

@@ -22,7 +22,8 @@ class LRUCache:
         if len(self.cache) == self.capacity:
             self.cache.pop(next(iter(self.cache)))
         self.cache[key] = value
-```
+
+````
 </Tab>
 <Tab value="Using Doubly Linked List">
 ```python
@@ -80,6 +81,7 @@ class LRUCache:
         node = Node(key, value)
         self.list.insert(node)
         self.cache[key] = node
-```
+````
+
 </Tab>
 </Tabs>

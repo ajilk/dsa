@@ -7,7 +7,8 @@ title: Dijkstra's Algorithm
 Dijkstra's Algorithm finds the shortest path from a source vertex to all other vertices in a weighted graph with non-negative edge weights.
 
 <Callout title="Core Insight" type="idea">
-Greedily expand the shortest known path first. Once a vertex is finalized (popped from the priority queue), its shortest distance is guaranteed.
+  Greedily expand the shortest known path first. Once a vertex is finalized (popped from the
+  priority queue), its shortest distance is guaranteed.
 </Callout>
 
 ## Algorithm Steps
@@ -71,6 +72,7 @@ def dijkstra(edges: list[tuple[int, int, int]], n: int, source: int) -> list[flo
     E -->|3| D
 
     style A fill:#555,stroke:none,color:#fff`} />
+
 </div>
 
 **Finding shortest paths from vertex 0:**

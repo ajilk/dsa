@@ -2,7 +2,6 @@
 title: Trie
 ---
 
-
 ```python
 class Trie:
     def __init__(self):

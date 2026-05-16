@@ -7,15 +7,15 @@ description: How to analyze time and space complexity
 
 Big O describes the **upper bound** of growth rate as input size $n$ approaches infinity. We drop constants and lower-order terms.
 
-| Complexity | Name | Example |
-| --- | --- | --- |
-| $O(1)$ | Constant | Array access, hash lookup |
-| $O(\log n)$ | Logarithmic | Binary search |
-| $O(n)$ | Linear | Single loop |
-| $O(n \log n)$ | Linearithmic | Merge sort, heap sort |
-| $O(n^2)$ | Quadratic | Nested loops |
-| $O(2^n)$ | Exponential | Subsets, backtracking |
-| $O(n!)$ | Factorial | Permutations |
+| Complexity    | Name         | Example                   |
+| ------------- | ------------ | ------------------------- |
+| $O(1)$        | Constant     | Array access, hash lookup |
+| $O(\log n)$   | Logarithmic  | Binary search             |
+| $O(n)$        | Linear       | Single loop               |
+| $O(n \log n)$ | Linearithmic | Merge sort, heap sort     |
+| $O(n^2)$      | Quadratic    | Nested loops              |
+| $O(2^n)$      | Exponential  | Subsets, backtracking     |
+| $O(n!)$       | Factorial    | Permutations              |
 
 ## Time Complexity
 
@@ -109,25 +109,26 @@ def fib(n):
 
 For recurrences of the form $T(n) = aT(n/b) + O(n^d)$:
 
-| Condition | Complexity |
-| --- | --- |
-| $d > \log_b a$ | $O(n^d)$ |
-| $d = \log_b a$ | $O(n^d \log n)$ |
+| Condition      | Complexity        |
+| -------------- | ----------------- |
+| $d > \log_b a$ | $O(n^d)$          |
+| $d = \log_b a$ | $O(n^d \log n)$   |
 | $d < \log_b a$ | $O(n^{\log_b a})$ |
 
 **Common examples:**
 
-| Algorithm | Recurrence | Result |
-| --- | --- | --- |
-| Binary search | $T(n) = T(n/2) + O(1)$ | $O(\log n)$ |
-| Merge sort | $T(n) = 2T(n/2) + O(n)$ | $O(n \log n)$ |
-| Karatsuba | $T(n) = 3T(n/2) + O(n)$ | $O(n^{1.58})$ |
+| Algorithm     | Recurrence              | Result        |
+| ------------- | ----------------------- | ------------- |
+| Binary search | $T(n) = T(n/2) + O(1)$  | $O(\log n)$   |
+| Merge sort    | $T(n) = 2T(n/2) + O(n)$ | $O(n \log n)$ |
+| Karatsuba     | $T(n) = 3T(n/2) + O(n)$ | $O(n^{1.58})$ |
 
 ## Space Complexity
 
 **Space complexity = auxiliary space only** (extra space used by the algorithm).
 
 **Exclude:**
+
 - Input space (given to you)
 - Output space (required regardless of approach)
 
@@ -175,16 +176,16 @@ def factorial(n):
 
 ## Data Structure Operations
 
-| Structure | Access | Search | Insert | Delete |
-| --- | --- | --- | --- | --- |
-| Array | $O(1)$ | $O(n)$ | $O(n)$ | $O(n)$ |
-| Dynamic Array | $O(1)$ | $O(n)$ | $O(1)$* | $O(n)$ |
-| Linked List | $O(n)$ | $O(n)$ | $O(1)$ | $O(1)$ |
-| Hash Table | — | $O(1)$* | $O(1)$* | $O(1)$* |
-| BST (balanced) | — | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ |
-| Heap | — | $O(n)$ | $O(\log n)$ | $O(\log n)$ |
+| Structure      | Access | Search      | Insert      | Delete      |
+| -------------- | ------ | ----------- | ----------- | ----------- |
+| Array          | $O(1)$ | $O(n)$      | $O(n)$      | $O(n)$      |
+| Dynamic Array  | $O(1)$ | $O(n)$      | $O(1)$\*    | $O(n)$      |
+| Linked List    | $O(n)$ | $O(n)$      | $O(1)$      | $O(1)$      |
+| Hash Table     | —      | $O(1)$\*    | $O(1)$\*    | $O(1)$\*    |
+| BST (balanced) | —      | $O(\log n)$ | $O(\log n)$ | $O(\log n)$ |
+| Heap           | —      | $O(n)$      | $O(\log n)$ | $O(\log n)$ |
 
-*Amortized or average case
+\*Amortized or average case
 
 ## Amortized Analysis
 
@@ -213,25 +214,25 @@ while right < n:
 
 ## Common Pitfalls
 
-| Code | Appears | Actually |
-| --- | --- | --- |
-| `str += char` in loop | $O(n)$ | $O(n^2)$ — strings are immutable |
-| `list.insert(0, x)` in loop | $O(n)$ | $O(n^2)$ — shifts all elements |
-| `x in list` in loop | $O(n)$ | $O(n^2)$ — use set for $O(1)$ lookup |
-| Slicing `A[i:j]` | $O(1)$ | $O(j-i)$ — creates copy |
-| `list.sort()` / `sorted()` | $O(1)$ space | $O(n)$ space — Timsort uses auxiliary storage |
+| Code                        | Appears      | Actually                                      |
+| --------------------------- | ------------ | --------------------------------------------- |
+| `str += char` in loop       | $O(n)$       | $O(n^2)$ — strings are immutable              |
+| `list.insert(0, x)` in loop | $O(n)$       | $O(n^2)$ — shifts all elements                |
+| `x in list` in loop         | $O(n)$       | $O(n^2)$ — use set for $O(1)$ lookup          |
+| Slicing `A[i:j]`            | $O(1)$       | $O(j-i)$ — creates copy                       |
+| `list.sort()` / `sorted()`  | $O(1)$ space | $O(n)$ space — Timsort uses auxiliary storage |
 
 ## Quick Reference
 
 **Identify the pattern:**
 
-| Pattern | Time |
-| --- | --- |
-| Fixed iterations | $O(1)$ |
-| Halving/doubling | $O(\log n)$ |
-| Single pass | $O(n)$ |
-| Sort then process | $O(n \log n)$ |
-| Nested dependent loops | $O(n^2)$ |
-| All pairs | $O(n^2)$ |
-| All subsets | $O(2^n)$ |
-| All permutations | $O(n!)$ |
+| Pattern                | Time          |
+| ---------------------- | ------------- |
+| Fixed iterations       | $O(1)$        |
+| Halving/doubling       | $O(\log n)$   |
+| Single pass            | $O(n)$        |
+| Sort then process      | $O(n \log n)$ |
+| Nested dependent loops | $O(n^2)$      |
+| All pairs              | $O(n^2)$      |
+| All subsets            | $O(2^n)$      |
+| All permutations       | $O(n!)$       |

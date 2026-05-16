@@ -22,7 +22,8 @@ def postorder(node: Optional[TreeNode]) -> List[TreeNode]:
     right = postorder(node.right)
 
     return left + right + [node]
-```
+
+````
 </Tab>
 <Tab value="Iterative">
 ```python
@@ -41,6 +42,7 @@ def postorder(node: Optional[TreeNode]) -> List[TreeNode]:
                 stack.append([node.left, False])
 
     return result
-```
+````
+
 </Tab>
 </Tabs>

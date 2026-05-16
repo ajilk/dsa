@@ -1,6 +1,7 @@
 'use client';
 
 import { use, useEffect, useId, useState } from 'react';
+
 import { useTheme } from 'next-themes';
 
 export function Mermaid({ chart }: { chart: string }) {
@@ -41,7 +42,7 @@ function MermaidContent({ chart }: { chart: string }) {
   const { svg, bindFunctions } = use(
     cachePromise(`${chart}-${resolvedTheme}`, () => {
       return mermaid.render(id, chart.replaceAll('\\n', '\n'));
-    }),
+    })
   );
 
   return (
