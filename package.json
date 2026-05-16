@@ -9,6 +9,8 @@
     "types:check": "fumadocs-mdx && next typegen && tsc --noEmit",
     "postinstall": "fumadocs-mdx",
     "lint": "eslint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "clean": "rimraf .next .source out",
     "new": "bun scripts/new-leetcode.ts"
   },
@@ -28,6 +30,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.17",
+    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "@types/mdx": "^2.0.13",
     "@types/node": "^24.10.2",
     "@types/react": "^19.2.7",
@@ -35,6 +38,7 @@
     "eslint": "^9.39.2",
     "eslint-config-next": "16.0.10",
     "postcss": "^8.5.6",
+    "prettier": "^3.8.3",
     "rimraf": "^6.1.2",
     "tailwindcss": "^4.1.17",
     "typescript": "^5.9.3"
