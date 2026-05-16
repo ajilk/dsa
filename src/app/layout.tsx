@@ -5,6 +5,7 @@ import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 import { source } from '@/lib/source';
 import { baseOptions } from '@/lib/layout.shared';
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -22,6 +23,7 @@ export default function Layout({ children }: LayoutProps<'/'>) {
       <body className="flex flex-col min-h-screen">
         <RootProvider>
           <DocsLayout tree={source.pageTree} {...baseOptions()}>
+            <Analytics />
             {children}
           </DocsLayout>
         </RootProvider>
