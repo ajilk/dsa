@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-A competitive programming documentation site built with Fumadocs (Next.js-based documentation framework). Contains LeetCode solutions, data structures, algorithms, and patterns documentation.
+A Data Structures & Algorithms documentation site built with Fumadocs (Next.js-based documentation framework). Contains LeetCode solutions, data structures, algorithms, and patterns documentation.
 
 ## Commands
 

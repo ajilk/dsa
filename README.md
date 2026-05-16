@@ -2,7 +2,7 @@
 
 <img src="https://api.iconify.design/mdi:code-braces-box.svg?color=%236366f1" width="80" alt="icon" />
 
-# Competitive Programming
+# Data Structures & Algorithms
 
 **Ace your coding interviews.**
 
