@@ -1,6 +1,6 @@
 ---
-argument-hint: [code]
-description: Analyze time and space complexity of code
+argument-hint: "[code]"
+description: Analyze time and space complexity of code. Use when asked about Big O, time complexity, space complexity, or to analyze algorithm performance.
 ---
 
 Analyze the provided code and determine its time and space complexity.

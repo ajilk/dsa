@@ -11,8 +11,7 @@
     "lint": "eslint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "clean": "rimraf .next .source out",
-    "new": "bun scripts/new-leetcode.ts"
+    "clean": "rimraf .next .source out"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

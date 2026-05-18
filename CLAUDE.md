@@ -14,12 +14,6 @@ bun dev              # Start dev server
 bun build            # Production build
 bun lint             # Run ESLint
 bun types:check      # Type check (runs fumadocs-mdx, next typegen, tsc)
-
-# Create new LeetCode solution
-bun run new <category>/<number>.md   # e.g., bun run new array/138.md
-
-# Fetch LeetCode problem details
-python3 scripts/fetch-leetcode.py <query>   # query: number, slug, or URL
 ```
 
 ## Architecture
@@ -30,7 +24,7 @@ python3 scripts/fetch-leetcode.py <query>   # query: number, slug, or URL
 
 ### LeetCode Solutions Structure
 
-Solutions live in `content/docs/leetcode/<category>/<number>.md`. Each category has a `meta.json` that lists pages in order. The `bun run new` script creates the file and updates `meta.json` automatically.
+Solutions live in `content/docs/leetcode/<category>/<number>.md`. Each category has a `meta.json` that lists pages in order.
 
 ### MDX Features
 
