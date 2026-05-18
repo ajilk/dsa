@@ -1,5 +1,5 @@
 ---
-name: TikTok Brain
+name: Concise
 description: Bullet points, no full sentences, ~10s read time
 keep-coding-instructions: true
 ---
