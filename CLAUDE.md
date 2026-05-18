@@ -13,31 +13,55 @@ A Data Structures & Algorithms documentation site built with Fumadocs (Next.js-b
 bun dev              # Start dev server
 bun build            # Production build
 bun lint             # Run ESLint
+bun format           # Format with Prettier
+bun format:check     # Check formatting
 bun types:check      # Type check (runs fumadocs-mdx, next typegen, tsc)
+bun clean            # Remove .next, .source, out
 ```
 
 ## Architecture
 
 - **Content**: MDX files in `content/docs/` organized by topic (algorithms, data_structures, leetcode, patterns, misc)
 - **Source config**: `source.config.ts` - Fumadocs MDX configuration with KaTeX math support
-- **App**: Next.js app router in `src/app/` with catch-all route for docs
+- **App**: Next.js app router in `src/app/` with a single catch-all route `[[...slug]]/page.tsx` serving all docs pages
+- **Source loader**: `src/lib/source.ts` - wraps Fumadocs source API; `source.pageTree` drives the sidebar, `source.getPage()` resolves pages
+
+### Build pipeline
+
+`bun types:check` runs three steps in sequence: `fumadocs-mdx` (scans `content/docs/` and emits type stubs into `.source/`), `next typegen` (generates route-level types), then `tsc --noEmit`. The `.source/` directory must exist before TypeScript runs — `postinstall` handles this on fresh installs.
 
 ### LeetCode Solutions Structure
 
-Solutions live in `content/docs/leetcode/<category>/<number>.md`. Each category has a `meta.json` that lists pages in order.
+Solutions live in `content/docs/leetcode/<category>/<number>.md`. Each category has a `meta.json` that controls sidebar order. When adding a new solution:
+
+1. Create `content/docs/leetcode/<category>/<number>.md`
+2. Add the number (without extension) to the `pages` array in that category's `meta.json`
+
+Standard solution format:
+
+```md
+---
+title: <number>. <Problem Name>
+---
+
+\`\`\`python
+class Solution:
+    def method(self, A: List[int], ...) -> ...:
+        ...
+\`\`\`
+
+| Metric           | Complexity | Reason |
+| ---------------- | ---------- | ------ |
+| Time Complexity  | $O(n)$     | ...    |
+| Space Complexity | $O(n)$     | ...    |
+```
 
 ### MDX Features
 
-- Math equations via remark-math/rehype-katex
-- Mermaid diagrams via custom component (`src/components/mermaid.tsx`)
-- Tabs component for multiple solutions
+- Math equations via remark-math/rehype-katex (inline: `$O(n)$`, block: `$$...$$`)
+- Mermaid diagrams via `<Mermaid chart="..." />` (`src/components/mermaid.tsx`)
+- `<Tabs>` / `<Tab>` components for multiple solutions (from fumadocs-ui)
 
 ## Naming Conventions for Solutions
 
-When writing LeetCode solutions, follow `content/docs/naming.md`:
-
-- `A` for arrays, `M` for matrices, `G` for graphs
-- `i`, `j` for indices; `y`, `x` for matrix coordinates
-- `left`, `right` for two pointers; `slow`, `fast` for fast/slow pointers
-- `dp`, `cache`, `memo` for dynamic programming
-- `dfs()`, `bfs()` for traversals; `bt()` for backtracking
+See @content/docs/naming.md for the full variable naming table.
