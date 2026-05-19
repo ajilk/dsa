@@ -15,9 +15,12 @@ Below is the naming convention I use for commonly used variables
 |           variable name | description                                       |
 | ----------------------: | :------------------------------------------------ |
 |                     `A` | array                                             |
+|              `A1`, `A2` | multiple arrays in function definition            |
 |        `I`, `intervals` | intervals                                         |
 |                     `v` | value in an array                                 |
 |             `n`, `size` | array size                                        |
+|              `n1`, `n2` | sizes of `A1`, `A2` respectively                  |
+|              `i1`, `i2` | indices into `A1`, `A2` respectively              |
 |                     `M` | matrix                                            |
 |                     `m` | number of row in a matrix                         |
 |                     `n` | number of columns in a matrix                     |

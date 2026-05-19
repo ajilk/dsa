@@ -46,8 +46,8 @@ title: <number>. <Problem Name>
 
 \`\`\`python
 class Solution:
-    def method(self, A: List[int], ...) -> ...:
-        ...
+def method(self, A: List[int], ...) -> ...:
+...
 \`\`\`
 
 | Metric           | Complexity | Reason |

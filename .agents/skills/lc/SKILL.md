@@ -1,5 +1,5 @@
 ---
-argument-hint: "[question/code/link]"
+argument-hint: '[question/code/link]'
 description: solve lc problems in python.
 allowed-tools: Bash, Read, WebFetch, WebSearch
 ---

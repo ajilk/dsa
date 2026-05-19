@@ -1,5 +1,5 @@
 ---
-argument-hint: "[code]"
+argument-hint: '[code]'
 description: Analyze time and space complexity of code. Use when asked about Big O, time complexity, space complexity, or to analyze algorithm performance.
 ---
 
