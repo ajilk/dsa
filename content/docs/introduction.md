@@ -2,4 +2,4 @@
 title: Introduction
 ---
 
-database for everything related to technical interviews
+Personal reference for technical interviews. LeetCode solutions, patterns, algorithms, and data structures.
