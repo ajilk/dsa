@@ -2,7 +2,7 @@
   "title": "Patterns",
   "icon": "Sparkles",
   "pages": [
-    "prefix_sum",
+    "prefix_suffix_sum",
     "dp",
     "tree",
     "backtracking",
