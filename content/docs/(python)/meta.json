@@ -1,6 +1,5 @@
 {
   "title": "Python",
-  "icon": "FileCode",
   "root": true,
   "pages": [
     "index",

@@ -1,6 +1,5 @@
 {
   "title": "C++",
-  "icon": "Swords",
   "root": true,
   "pages": ["index"]
 }
