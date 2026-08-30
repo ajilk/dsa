@@ -21,7 +21,7 @@ bun clean            # Remove .next, .source, out
 
 ## Architecture
 
-- **Content**: MDX files in `content/docs/` organized by topic (algorithms, data_structures, leetcode, patterns, misc)
+- **Content**: MDX files in `content/docs/`, split into root-toggle sections by language — `content/docs/(python)/` (algorithms, data_structures, leetcode, patterns, misc) and `content/docs/cpp/` (competitive programming, WIP)
 - **Source config**: `source.config.ts` - Fumadocs MDX configuration with KaTeX math support
 - **App**: Next.js app router in `src/app/` with a single catch-all route `[[...slug]]/page.tsx` serving all docs pages
 - **Source loader**: `src/lib/source.ts` - wraps Fumadocs source API; `source.pageTree` drives the sidebar, `source.getPage()` resolves pages
@@ -32,9 +32,9 @@ bun clean            # Remove .next, .source, out
 
 ### LeetCode Solutions Structure
 
-Solutions live in `content/docs/leetcode/<category>/<number>.md`. Each category has a `meta.json` that controls sidebar order. When adding a new solution:
+Solutions live in `content/docs/(python)/leetcode/<category>/<number>.md`. Each category has a `meta.json` that controls sidebar order. When adding a new solution:
 
-1. Create `content/docs/leetcode/<category>/<number>.md`
+1. Create `content/docs/(python)/leetcode/<category>/<number>.md`
 2. Add the number (without extension) to the `pages` array in that category's `meta.json`
 
 Standard solution format:
@@ -64,4 +64,4 @@ def method(self, A: List[int], ...) -> ...:
 
 ## Naming Conventions for Solutions
 
-See @content/docs/naming.md for the full variable naming table.
+See @content/docs/(python)/naming.md for the full variable naming table.

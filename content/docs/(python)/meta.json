@@ -1,5 +1,9 @@
 {
+  "title": "Python",
+  "icon": "FileCode",
+  "root": true,
   "pages": [
+    "index",
     "---Getting Started---",
     "introduction",
     "naming",
