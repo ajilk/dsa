@@ -64,3 +64,4 @@ Below is the naming convention I use for commonly used variables
 |        `dft()`, `bft()` | depth/breadth first traversal                     |
 |   `bt()`, `backtrack()` | backtrack                                         |
 |                `result` | result                                            |
+|          `count`, `cnt` | count of elements/occurrences                     |
