@@ -14,7 +14,7 @@ for(int i = 0; i < n; i++) {
 ```c++
 c = c | 32      // = tolower(c)
 c = c & ~32     // = toupper(c)
-c = c ^ 32      // = upper -> lower, lower -> upper 
+c = c ^ 32      // = upper -> lower, lower -> upper
 ```
 
 ```c++

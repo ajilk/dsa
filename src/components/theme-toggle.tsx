@@ -1,27 +1,23 @@
 'use client';
-import { cva } from 'class-variance-authority';
-import { Moon, Sun, Airplay } from 'lucide-react';
-import { useTheme } from 'next-themes';
 import { type HTMLAttributes, useLayoutEffect, useState } from 'react';
+
+import { useTheme } from 'next-themes';
+
+import { cva } from 'class-variance-authority';
+import { Airplay, Moon, Sun } from 'lucide-react';
+
 import { cn } from '../lib/cn';
 
-const itemVariants = cva(
-  'size-6.5 rounded-full p-1.5 text-fd-muted-foreground',
-  {
-    variants: {
-      active: {
-        true: 'bg-fd-accent text-fd-accent-foreground',
-        false: 'text-fd-muted-foreground',
-      },
+const itemVariants = cva('size-6.5 rounded-full p-1.5 text-fd-muted-foreground', {
+  variants: {
+    active: {
+      true: 'bg-fd-accent text-fd-accent-foreground',
+      false: 'text-fd-muted-foreground',
     },
   },
-);
+});
 
-const full = [
-  ['light', Sun] as const,
-  ['dark', Moon] as const,
-  ['system', Airplay] as const,
-];
+const full = [['light', Sun] as const, ['dark', Moon] as const, ['system', Airplay] as const];
 
 export function ThemeToggle({
   className,
@@ -40,7 +36,10 @@ export function ThemeToggle({
   if (mode === 'light-dark-single-button') {
     return (
       <button
-        className={cn("justify-center rounded-md text-sm font-medium transition-colors duration-100 disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fd-ring hover:bg-fd-accent hover:text-fd-accent-foreground p-1.5 [&_svg]:size-4.5 flex items-center gap-2", className?.replace('p-0', ''))}
+        className={cn(
+          'justify-center rounded-md text-sm font-medium transition-colors duration-100 disabled:pointer-events-none disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fd-ring hover:bg-fd-accent hover:text-fd-accent-foreground p-1.5 [&_svg]:size-4.5 flex items-center gap-2',
+          className?.replace('p-0', '')
+        )}
         aria-label={`Toggle Theme`}
         onClick={() => setTheme(resolvedTheme === 'light' ? 'dark' : 'light')}
         data-abc={className}
@@ -55,10 +54,7 @@ export function ThemeToggle({
     );
   }
 
-  const container = cn(
-    'inline-flex items-center rounded-full border p-1',
-    className,
-  );
+  const container = cn('inline-flex items-center rounded-full border p-1', className);
 
   if (mode === 'light-dark') {
     const value = mounted ? resolvedTheme : null;

@@ -3,47 +3,35 @@ title: Graph
 ---
 
 ## Adjacency List
+
 <Tabs items={['Undirected', 'Directed', 'Weighted Directed']}>
-<Tab value="Undirected">
-```python
-G = defaultdict(list)
-for a, b in edges:
-    G[a].append(b)
-    G[b].append(a)
-```
-</Tab>
-<Tab value="Directed">
-```python
-G = defaultdict(list)
-for a, b in edges:
-    G[a].append(b)
-```
-</Tab>
-<Tab value="Weighted Directed">
-```python
-G = defaultdict(dict)
-for a, b, weight in edges:
-    G[a][b] = weight
-    G[b][a] = weight
-````
-</Tab>
+  <Tab value="Undirected">
+    ```python G = defaultdict(list) for a, b in edges: G[a].append(b) G[b].append(a) ```
+  </Tab>
+  <Tab value="Directed">```python G = defaultdict(list) for a, b in edges: G[a].append(b) ```</Tab>
+  <Tab value="Weighted Directed">
+    ```python G = defaultdict(dict) for a, b, weight in edges: G[a][b] = weight G[b][a] = weight
+    ````
+  </Tab>
 </Tabs>
 
-## Traversal 
+## Traversal
+
 <Tabs items={['Recursive DFT', 'Iterative DFT', 'BFT']}>
 <Tab value="Recursive DFT">
 ```python
 visited = set()
 
 def dft(node: int) -> None:
-    if node in visited:
-        return
+if node in visited:
+return
 
     visited.add(node)
 
     for nei in G[node]:
         dft(nei)
-```
+
+````
 </Tab>
 
 <Tab value="Iterative DFT">
@@ -61,6 +49,7 @@ while stack:
     for nei in G[node]:
         stack.append(nei)
 ````
+
 </Tab>
 
 <Tab value="BFT">
@@ -70,11 +59,12 @@ visited = set([start])
 
 while q:
 node = q.popleft()
-    for nei in G[node]:
-        if nei not in visited:
-            visited.add(nei)
-            q.append(nei)
+for nei in G[node]:
+if nei not in visited:
+visited.add(nei)
+q.append(nei)
 
 ```
 </Tab>
 </Tabs>
+```
